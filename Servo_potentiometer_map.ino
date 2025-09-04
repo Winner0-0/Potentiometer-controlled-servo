@@ -1,15 +1,12 @@
-#include <LiquidCrystal.h> // Include the LiquidCrystal library for LCD display
-#include <Servo.h>         // Include the Servo library for controlling the servo motor
+#include <LiquidCrystal.h> 
+#include <Servo.h>         
 
-// Initialize the LCD with the pin connections: (RS, enable, d4, d5, d6, d7)
+//(RS, enable, d4, d5, d6, d7)
 LiquidCrystal lcd(12, 11, 4, 5, 6, 7);
 
 Servo winserv;
 
-// Define the analog pin connected to the potentiometer.
-// Using 'const int' is good practice for pin assignments.
-// Assuming the potentiometer is connected to Analog Pin A0.
-// If it's connected to a different analog pin (e.g., A1, A2), change 'A0' accordingly.
+// To define the analog pin connected to the potentiometer.
 const int potentiometerPin = A0;
 
 // raw potentiometer value (0-1023)
@@ -23,8 +20,8 @@ void setup() {
   lcd.begin(16, 2);
 
   lcd.print("S&P machine >:]");
-  delay(1000); // Keep the message on screen for 1 second
-  lcd.clear(); // Clear the LCD after the delay
+  delay(1000); 
+  lcd.clear(); 
 }
 
 void loop() {
@@ -40,8 +37,9 @@ void loop() {
   
   lcd.setCursor(0, 1);
   // Clear the rest of the line to prevent ghosting from previous longer numbers
-  lcd.print("                "); // Print spaces to clear the line
-  lcd.setCursor(0, 1);           // Reset cursor
-  lcd.print(servoPosition);      // Display the current servo position
+  lcd.print("                "); 
+  lcd.setCursor(0, 1);          
+  lcd.print(servoPosition);      
   lcd.print(" Degrees");
 }
+
